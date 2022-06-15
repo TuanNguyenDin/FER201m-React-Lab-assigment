@@ -32,7 +32,31 @@ class Menu extends Component {
               <div></div>
           );
   }
-
+  renderDishComment(dish) {
+    if (dish != null)
+      return (
+        <Card>
+          <div className="">
+            {dish.comments.map((item) => {
+              return (
+                <li key={item.id} className="font-semibold text-left mb-5">
+                  <h5>{item.comment}</h5>
+                  <span>
+                    By: <strong>{item.author}</strong>,
+                    {new Intl.DateTimeFormat("en-US", {
+                      year: "numeric",
+                      month: "short",
+                      day: "2-digit",
+                    }).format(new Date(Date.parse(item.date)))}
+                  </span>
+                </li>
+              );
+            })}
+          </div>
+        </Card>
+      );
+    else return <div></div>;
+  }
   render() {
       const menu = this.props.dishes.map((dish) => {
           return (
@@ -56,6 +80,9 @@ class Menu extends Component {
               <div className="row">
                 <div  className="col-12 col-md-5 m-1">
                   {this.renderDish(this.state.selectedDish)}
+                </div>
+                <div className="col-12 col-md-5 m-1">
+                {this.renderDishComment(this.state.selectedDish)}
                 </div>
               </div>
           </div>
