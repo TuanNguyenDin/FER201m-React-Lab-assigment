@@ -25,20 +25,20 @@ const mapStateToProps = state => {
 
 
 class Main extends Component {
-  constructor(props) {
-    super(props);
+  // constructor(props) {
+  //   super(props);
 
-    this.state = {
-      dishes: DISHES,
-      comments: COMMENTS,
-      promotions: PROMOTIONS,
-      leaders: LEADERS,
-    };
-  }
+  //   this.state = {
+  //     dishes: DISHES,
+  //     comments: COMMENTS,
+  //     promotions: PROMOTIONS,
+  //     leaders: LEADERS,
+  //   };
+  // }
 
-  onDishSelect(dishId) {
-    this.setState({ selectedDish: dishId });
-  }
+  // onDishSelect(dishId) {
+  //   this.setState({ selectedDish: dishId });
+  // }
 
   render() {
     const HomePage = () => {
